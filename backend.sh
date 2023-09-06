@@ -3,6 +3,7 @@ curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 dnf install nodejs -y
 
 useradd expense
+cp backend.service /etc/systemd/system/backend.service
 
 mkdir /app
 
