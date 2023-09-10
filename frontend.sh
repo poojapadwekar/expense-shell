@@ -1,16 +1,13 @@
 source common.sh
+common=frontend
 echo Installing the nginx
 dnf install nginx -y >>$a
 
 Removing the congiguration
 rm -rf /usr/share/nginx/html/* >>$a
 cp expense.conf /etc/nginx/default.d/expense.conf >>$a
-
-curl -o /tmp/frontend.zip https://expense-artifacts.s3.amazonaws.com/frontend.zip >>$a
-
-echo unzipping
 cd /usr/share/nginx/html >>$a
-unzip /tmp/frontend.zip >>$a
+download and extarct
 
 
 echo starting the service
