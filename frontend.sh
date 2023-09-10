@@ -1,15 +1,16 @@
+a=/tmp/expense.log
 echo Installing the nginx
-dnf install nginx -y >>/tmp/expense.log
+dnf install nginx -y >>$a
 
 Removing the congiguration
-rm -rf /usr/share/nginx/html/* >>/tmp/expense.log
-cp expense.conf /etc/nginx/default.d/expense.conf >>/tmp/expense.log
+rm -rf /usr/share/nginx/html/* >>$a
+cp expense.conf /etc/nginx/default.d/expense.conf >>$a
 
-curl -o /tmp/frontend.zip https://expense-artifacts.s3.amazonaws.com/frontend.zip >>/tmp/expense.log
+curl -o /tmp/frontend.zip https://expense-artifacts.s3.amazonaws.com/frontend.zip >>$a
 
 echo unzipping
-cd /usr/share/nginx/html >>/tmp/expense.log
-unzip /tmp/frontend.zip >>/tmp/expense.log
+cd /usr/share/nginx/html >>$a
+unzip /tmp/frontend.zip >>$a
 
 
 echo starting the service
